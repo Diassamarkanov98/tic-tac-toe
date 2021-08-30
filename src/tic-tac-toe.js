@@ -21,7 +21,6 @@ class TicTacToe {
 
     nextTurn(rowIndex, columnIndex) {
         if (this.ticTacToeField[rowIndex][columnIndex]) {
-            this.player *= -1;
             return;
         } 
         this.ticTacToeField[rowIndex][columnIndex] = this.currentPlayerSymbol;
@@ -40,10 +39,11 @@ class TicTacToe {
         if (Math.abs(this.rows[rowIndex]) == 3 || Math.abs(this.columns[columnIndex]) == 3 
           || Math.abs(this.diagonal) == 3 || Math.abs(this.antiDiagonal) == 3) {
           this.winner = this.player == 1 ? "x" : "o";
+        }
         
         this.player *= -1;
         this.moveCounter++;
-      }
+      
     }
 
     isFinished() {
